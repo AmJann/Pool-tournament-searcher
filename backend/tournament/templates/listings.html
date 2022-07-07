@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Tournaments <a href="">Add a Tournament</a></h2>
+<ul>
+    {% for listings in listings %}
+    <li>
+        <p><a href="">{{listings.director}}</a></p>
+        <p>{{listings.phone_number}}</p>
+        <p>{{listings.email}}</p>
+        <p>{{listings.venue}}</p>
+        <p>{{listings.address}}</p>
+        <p>{{listings.city}}</p>
+        <p>{{listings.state}}</p>
+        <p>{{listings.zipcode}}</p>
+        <p>{{listings.date}}</p>
+        <p>{{listings.sign_up_time}}</p>
+        <p>{{listings.start_time}}</p>
+        <p>{{listings.description}}</p>
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock %}
