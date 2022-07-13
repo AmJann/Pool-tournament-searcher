@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-function Login({setUserSignedIn}) {
+function Login({userSignedIn,setUserSignedIn}) {
     
-    const loginEndpoint = 'login'
+    const loginEndpoint = 'api/token/'
     //from backend
 
     const [formInfo, setFromInfo] = useState({username:'', password:''})
@@ -74,6 +74,8 @@ function Login({setUserSignedIn}) {
                     console.log(data)
 
                     setUserSignedIn(data.username)
+
+                    console.log(userSignedIn)
 
                     // add tokens to localstorage here
                     // redirect here

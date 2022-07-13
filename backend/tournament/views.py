@@ -17,7 +17,7 @@ class ListingsProtected(generics.ListCreateAPIView):
     serializer_class = ListingSerializer    
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
+    # can make this ListAPIView and CreateAPIView seperate to give different permissions
 def listings(request):
     listings = Listing.objects.all()
     return render(request, 'listings.html', {'listings': listings})

@@ -33,6 +33,15 @@ ALLOWED_HOSTS = [
 ]
 
 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://127.0.0.1", 
+# ]
+# CORS_ORIGIN_WHITELIST = (
+#   'http://localhost:8000',
+# )
+
+# CORS_ALLOW_CREDENTIALS = False
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tournament',
     'rest_framework',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +64,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'tournament_django.urls'
 

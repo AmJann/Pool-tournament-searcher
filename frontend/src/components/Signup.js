@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 
-function SignUp({setUserSignedIn}) {
 
-    const signUpEndpoint = 'signup'
+function Signup({setUserSignedIn}) {
+
+    const signUpEndpoint = 'api/token/'
 
     const [formInfo, setFromInfo] = useState({username:'', password:''})
     const [networkErrMsg, setNetworkErrMsg] = useState(null)
@@ -87,4 +88,4 @@ function SignUp({setUserSignedIn}) {
     );
 }
 
-export default SignUp;
+export default Signup;
