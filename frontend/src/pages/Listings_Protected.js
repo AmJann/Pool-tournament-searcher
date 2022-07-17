@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import {Link} from 'react-router-dom'
 import "../listings.css";
 
 function Listings_Protected() {
@@ -32,21 +33,16 @@ function Listings_Protected() {
     
   }, []);
 
-  let tournamentListing = tournament.map((item) => {
+  let tournamentListing = tournament.map((item, i) => {
     return (
       <div className="listing-container">
-        <p>{item.director}</p>
-        <p>{item.phone_number}</p>
-        <p>{item.email}</p>
+     <Link to={`/listing_detail/${item.uuid}`} key={i} className="link">  
+        <p>{item.title}</p>
         <p>{item.venue}</p>
-        <p>{item.address}</p>
         <p>{item.city}</p>
         <p>{item.state}</p>
-        <p>{item.zipcode}</p>
         <p>{item.date}</p>
-        <p>{item.sign_up_time}</p>
-        <p>{item.start_time}</p>
-        <p>{item.description}</p>
+       </Link>
       </div>
     );
   });

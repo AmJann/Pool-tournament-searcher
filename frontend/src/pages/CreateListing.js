@@ -5,6 +5,7 @@ function CreateListing(accessToken, userSignedIn) {
   const [tournament, setTournament] = useState([]);
   const [formData, setFormData] = useState({
     director: "",
+    title:"",
     phone_number: "",
     email: "",
     venue: "",
@@ -49,6 +50,7 @@ function CreateListing(accessToken, userSignedIn) {
     <div className="formContainer">
       <form onSubmit={handleSubmit}>
         <input id="director" type="text" placeholder="name" value={formData.director} onChange={handleChange} />
+        <input id="title" type="text" placeholder="tournament name" value={formData.title} onChange={handleChange} />
         <input id="phone_number" type="text" placeholder="phone number" value={formData.phone_number} onChange={handleChange} />
         <input id="email" type="email" placeholder="email" value={formData.email} onChange={handleChange} />
         <input id="venue" type="text" placeholder="venue" value={formData.venue} onChange={handleChange} />

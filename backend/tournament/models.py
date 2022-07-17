@@ -4,7 +4,8 @@ import uuid
 
 
 class Listing(models.Model):
-    uuid = models.UUIDField(unique=True, auto_created=True, default=uuid.uuid4)
+    uuid = models.UUIDField(primary_key=True,unique=True, auto_created=True, default=uuid.uuid4)
+    title = models.CharField(max_length=50, default='Pool Tournament')
     director = models.CharField(max_length=100, default='name')
     phone_number = models.CharField(max_length=12)
     email = models.EmailField(max_length=50)

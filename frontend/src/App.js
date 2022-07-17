@@ -6,6 +6,7 @@ import {Route, Link, Routes, Navigate} from 'react-router-dom'
 import LandingPage from './pages/LandingPage';
 import Listings_protected from './pages/Listings_protected';
 import CreateListing from './pages/CreateListing';
+import ListingDetail from './pages/ListingDetail';
 
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(null)
@@ -38,6 +39,7 @@ function App() {
       <Route  exact path="/landing_page/"  element={<LandingPage accessToken={accessToken} userSignedIn={userSignedIn}/>}/>
       <Route exact path="/listings/" element={ <Listings_protected accessToken={accessToken} userSignedIn={userSignedIn} />}/> 
       <Route exact path="/listing_create/" element={ <CreateListing accessToken={accessToken} userSignedIn={userSignedIn} />}/> 
+      <Route exact path="/listing_detail/:id" element={ <ListingDetail accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       
 </Routes>
 

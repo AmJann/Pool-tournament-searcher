@@ -23,12 +23,16 @@ class ListingCreateProtected(generics.CreateAPIView):
     serializer_class = ListingSerializer  
     
     permission_classes = [permissions.IsAuthenticated] 
+
+class ListingDetailProtected(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ListingSerializer
+    queryset = Listing.objects.all()
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
 def listings(request):
     listings = Listing.objects.all()
     return render(request, 'listings.html', {'listings': listings})
 
-def Login(request):
-    return JsonResponse({'loggedIn':True, 'username': 'mock_user'})
 
-def Signup(request):
-    return JsonResponse({'loggedIn':True, 'username': 'mock_user'})
