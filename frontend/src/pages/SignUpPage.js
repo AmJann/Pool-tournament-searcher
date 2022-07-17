@@ -1,9 +1,9 @@
 import React from 'react'
 import Signup from '../components/Signup'
 
-function SignUpPage() {
+function SignUpPage({setUserSignedIn}) {
   return (
-    <div><Signup /></div>
+    <div><Signup setUserSignedIn={setUserSignedIn}/></div>
   )
 }
 

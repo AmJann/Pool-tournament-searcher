@@ -1,8 +1,12 @@
 from django.db import models
+import uuid
+
+
 
 class Listing(models.Model):
+    uuid = models.UUIDField(unique=True, auto_created=True, default=uuid.uuid4)
     director = models.CharField(max_length=100, default='name')
-    phone_number = models.IntegerField(max_length=12)
+    phone_number = models.CharField(max_length=12)
     email = models.EmailField(max_length=50)
     venue = models.CharField(max_length=30)
     address = models.CharField(max_length=100)

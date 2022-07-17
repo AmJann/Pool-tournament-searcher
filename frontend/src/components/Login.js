@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import LandingPage from '../pages/LandingPage';
+import {useLocation} from 'react-router';
+import { useNavigate } from "react-router-dom";
+import {useHistory} from 'react-router-dom'
 
-function Login({userSignedIn,setUserSignedIn}) {
+function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
     
     const loginEndpoint = 'api/token/'
     //from backend
-
+    const navigate = useNavigate();
     const [formInfo, setFromInfo] = useState({username:'', password:''})
     const [networkErrMsg, setNetworkErrMsg] = useState(null)
     const [clientErrMsg, setClientErrMsg] = useState(null)
@@ -73,25 +77,29 @@ function Login({userSignedIn,setUserSignedIn}) {
                     
                     console.log(data)
 
-                    setUserSignedIn(data.username)
+                    setUserSignedIn(formInfo.username)
+                    setAccessToken(data.access)
+                    console.log(data.access)
 
-                    console.log(userSignedIn)
+                    console.log(formInfo.username)
 
                     // add tokens to localstorage here
-                    // redirect here
+                    navigate('/landing_page');
+                 
+                    
                 }
             })
     }
-
+    
     return (
     <div>
       <h3>Login</h3>
         <form onSubmit={handleLogin}>
             <label>username:</label>
-            <input id="username" name="username" type="text" onChange={handleChange}/>
+            <input id="username" name="username" type="text" onChange={handleChange}/><br></br>
             {/* onChange changes the state as you type (see handleChange) */}
             <label>password:</label>
-            <input id="password" name="username" type="text" onChange={handleChange}/>
+            <input id="password" name="username" type="text" onChange={handleChange}/><br></br>
             <button type="submit">Login</button>
         </form>
         <p>{networkErrMsg}</p>

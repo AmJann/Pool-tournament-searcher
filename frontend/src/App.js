@@ -2,12 +2,15 @@ import {useEffect, useState} from 'react'
 import './App.css'
 import Login from './components/Login';
 import SignUpPage from './pages/SignUpPage';
-import {Route, Link, Routes} from 'react-router-dom'
+import {Route, Link, Routes, Navigate} from 'react-router-dom'
 import LandingPage from './pages/LandingPage';
+import Listings_protected from './pages/Listings_protected';
+import CreateListing from './pages/CreateListing';
 
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(null)
   const [accessToken, setAccessToken]= useState(null);
+  const [redirected, setRedirected]= useState(null)
 //   useEffect(() => {
     
 //     const url = process.env.REACT_APP_API_URL + 'listings_protected/';
@@ -31,26 +34,31 @@ function App() {
     <div className="App">
       <Routes>
       <Route  exact path="/" element={<Login userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} setAccessToken={setAccessToken}/>}/>
-          
-      
       <Route  exact path="/signup" element={ <SignUpPage userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} setAccessToken={setAccessToken}/>}/>
-         
-     
-      <Route  exact path="/landing_page/*"  element={<LandingPage accessToken={accessToken} userSignedIn={userSignedIn}/>}/>
-          
-     
+      <Route  exact path="/landing_page/"  element={<LandingPage accessToken={accessToken} userSignedIn={userSignedIn}/>}/>
+      <Route exact path="/listings/" element={ <Listings_protected accessToken={accessToken} userSignedIn={userSignedIn} />}/> 
+      <Route exact path="/listing_create/" element={ <CreateListing accessToken={accessToken} userSignedIn={userSignedIn} />}/> 
+      
 </Routes>
-      <div>
-      <Link to="/signup/"> Sign Up | </Link>
-      <Link to="/landing_page/*"> Guest</Link>
 
-      </div>
 
-      {userSignedIn ? (
+      {  userSignedIn ? (
+        
         <nav>
-          <span>signed in as: {userSignedIn}</span>
-        </nav>  
-        ) : <span>invalid login</span>
+          <span>signed in as: {userSignedIn}</span><br></br>
+          <Link to="/landing_page/"> Home </Link>
+        </nav>
+        
+
+        
+
+          
+        ) :      
+        <div>
+        <Link to="/signup/"> Sign Up | </Link>
+        <Link to="/landing_page/"> Guest</Link><br></br>
+        <span>invalid login</span>
+        </div> 
       }
 
 

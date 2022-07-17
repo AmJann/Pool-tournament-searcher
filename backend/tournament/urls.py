@@ -7,4 +7,5 @@ urlpatterns = [
     path('login', views.Login),
     path('signup', views.Signup),
     path('listings_protected/', views.ListingsProtected.as_view(), name ='listings'),
+    path('listing_create/', views.ListingCreateProtected.as_view(), name='listing_create')
 ]
