@@ -7,6 +7,8 @@ import LandingPage from './pages/LandingPage';
 import Listings_protected from './pages/Listings_protected';
 import CreateListing from './pages/CreateListing';
 import ListingDetail from './pages/ListingDetail';
+import EditListing from './pages/EditListing';
+import DeleteListing from './pages/DeleteListing';
 
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(null)
@@ -40,6 +42,8 @@ function App() {
       <Route exact path="/listings/" element={ <Listings_protected accessToken={accessToken} userSignedIn={userSignedIn} />}/> 
       <Route exact path="/listing_create/" element={ <CreateListing accessToken={accessToken} userSignedIn={userSignedIn} />}/> 
       <Route exact path="/listing_detail/:id" element={ <ListingDetail accessToken={accessToken} userSignedIn={userSignedIn} />}/>
+      <Route exact path="/listing_edit/:id" element={ <EditListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
+      <Route exact path="/listing_delete/:id" element={ <DeleteListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       
 </Routes>
 

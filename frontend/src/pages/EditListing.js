@@ -1,8 +1,9 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {useState} from 'react'
 
-function editListing(accessToken) {
+function EditListing(accessToken) {
+    const navigate = useNavigate();
     const urlParams = useParams();
     const [tournament, setTournament] = useState([]);
     const [formData, setFormData] = useState({
@@ -45,13 +46,14 @@ function editListing(accessToken) {
             return data
           })
         .then((data) => setTournament(data))
+        .finally(tournament ? navigate('/landing_page/'): null)
     };
     console.log(accessToken)
     console.log(tournament)
     return (
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
-          <input id="director" type="text" placeholder="name" value={formData.director} onChange={handleChange} />
+          <input id="director" type="text" placeholder="director" value={formData.director} onChange={handleChange} />
           <input id="title" type="text" placeholder="tournament name" value={formData.title} onChange={handleChange} />
           <input id="phone_number" type="text" placeholder="phone number" value={formData.phone_number} onChange={handleChange} />
           <input id="email" type="email" placeholder="email" value={formData.email} onChange={handleChange} />
@@ -70,4 +72,4 @@ function editListing(accessToken) {
     );
   }
 
-export default editListing
+export default EditListing

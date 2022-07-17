@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function ListingDetail(accessToken) {
     const [tournament, setTournament] = useState([]);
     const urlParams = useParams();
+  
 
   
     useEffect(() => {
@@ -50,7 +51,9 @@ function ListingDetail(accessToken) {
           <p>{tournament.description}</p>
         </div> 
         : console.log(tournament)}</h1>
+         <Link to={`/listing_edit/${tournament.uuid}`} className="link">Edit</Link>
       </div>
+      
     );
   }
   

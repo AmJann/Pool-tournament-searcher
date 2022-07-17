@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateListing(accessToken, userSignedIn) {
+  const navigate = useNavigate();
   const [tournament, setTournament] = useState([]);
   const [formData, setFormData] = useState({
     director: "",
@@ -43,6 +45,7 @@ function CreateListing(accessToken, userSignedIn) {
           return data
         })
       .then((data) => setTournament(data))
+      .finally(tournament ? navigate('/listings/'): null)
   };
   console.log(accessToken)
   console.log(tournament)

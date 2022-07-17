@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LandingPage from '../pages/LandingPage';
 import {useLocation} from 'react-router';
 import { useNavigate } from "react-router-dom";
 import {useHistory} from 'react-router-dom'
