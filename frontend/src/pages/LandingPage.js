@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Link, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Listings_Protected from "./Listings_protected";
+import LoginPage from "./LoginPage";
 
 function LandingPage({ accessToken, userSignedIn }) {
 
@@ -40,8 +41,8 @@ function LandingPage({ accessToken, userSignedIn }) {
   return  (
     <div>
 
-      <Link to="/listings/">Tournaments</Link>
-      <Link to="/listing_create/">Add Tournament Listing</Link>     
+      <Link className ='link' to="/listings/">Tournaments</Link>
+      <Link className ='link' to="/listing_create/">Add Tournament</Link>     
     </div>
   );
 }

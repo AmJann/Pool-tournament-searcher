@@ -7,6 +7,7 @@ urlpatterns = [
     path('listings_protected/', views.ListingsProtected.as_view(), name ='listings'),
     path('listing_create/', views.ListingCreateProtected.as_view(), name='listing_create'),
     path('listing_detail/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_detail'),
-    path('listing_edit/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_edit')
+    path('listing_edit/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_edit'),
+     path('listing_delete/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_delete')
 ]
 

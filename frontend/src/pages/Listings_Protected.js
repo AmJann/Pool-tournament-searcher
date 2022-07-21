@@ -51,6 +51,7 @@ function Listings_Protected() {
 
   return (
     <div>
+      <h1>Tournaments</h1>
       <h1>{tournament[0] ? tournamentListing : ""}</h1>
     </div>
   );

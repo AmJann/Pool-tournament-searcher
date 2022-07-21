@@ -2,4 +2,72 @@
     border:2px solid grey;
     border-radius: 5px;
     font-size: 12px;
+    text-decoration: none;
+    margin: 2% 5% 2% 5%;
+    background-color: rgb(54, 157, 54);
+    box-shadow: 30px rgb(141, 22, 22);
+    
+ 
+}
+.link{
+text-decoration: none;
+color:black;
+padding:1% 4% 1% 4%;
+margin: 10% 5% 0% 5%;
+border: 1px solid rgb(32, 32, 32);
+background-color: rgb(5, 126, 79);
+border-radius:12px;
+
+}
+body{
+    background-color: rgb(90, 166, 150);
+    border-left: 2px solid grey;
+    margin-left:5%;
+}
+#delete{
+    color:red;
+}
+
+.link:hover{
+    transform: scale(2);
+}
+
+.formContainer{
+    display:flex;
+    justify-content: center;
+    text-align: left;
+}
+#map{
+    height:400px;
+    width:100%;
+}
+.contactInfo{
+    display:inline-flex;
+    justify-content: center;
+    padding:2%;
+    
+
+}
+.address{
+    display:flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.tournamentInfo{
+
+}
+
+.phone, .email{
+display:flex;
+padding:20%;
+}
+
+.value{
+    color: rgb(45, 43, 43)
+}
+div > input{
+    display:flex;
+    border-radius: 3px;
+    flex-direction: row;
+    margin-top:1.5%;
 }

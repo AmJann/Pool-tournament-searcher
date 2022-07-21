@@ -35,6 +35,7 @@ function App() {
   return (
 
     <div className="App">
+    
       <Routes>
       <Route  exact path="/" element={<Login userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} setAccessToken={setAccessToken}/>}/>
       <Route  exact path="/signup" element={ <SignUpPage userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} setAccessToken={setAccessToken}/>}/>
@@ -45,15 +46,19 @@ function App() {
       <Route exact path="/listing_edit/:id" element={ <EditListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/listing_delete/:id" element={ <DeleteListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       
+      
 </Routes>
 
 
       {  userSignedIn ? (
-        
+        <div>
         <nav>
           <span>signed in as: {userSignedIn}</span><br></br>
-          <Link to="/landing_page/"> Home </Link>
         </nav>
+        <footer>
+             <Link to="/landing_page/"> Home </Link>
+        </footer>
+        </div>
         
 
         
@@ -61,9 +66,11 @@ function App() {
           
         ) :      
         <div>
-        <Link to="/signup/"> Sign Up | </Link>
-        <Link to="/landing_page/"> Guest</Link><br></br>
+
         <span>invalid login</span>
+        <footer>
+        <Link to="/landing_page/"> Home </Link>
+        </footer>
         </div> 
       }
 

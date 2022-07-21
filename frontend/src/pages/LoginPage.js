@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
+import Login from '../components/Login'
 import { useNavigate } from "react-router-dom";
-import {Link} from 'react-router-dom'
 
-function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
-    
+
+
+function LoginPage() {
     const loginEndpoint = 'api/token/'
     //from backend
     const navigate = useNavigate();
     const [formInfo, setFromInfo] = useState({username:'', password:''})
     const [networkErrMsg, setNetworkErrMsg] = useState(null)
     const [clientErrMsg, setClientErrMsg] = useState(null)
+    const [userSignedIn, setUserSignedIn] = useState(null)
+    const [accessToken, setAccessToken]= useState(null);
 
     const statusCodeToErr = (responseObj) => {
         setNetworkErrMsg(`Network Error of code: ${responseObj.status}`)
@@ -75,7 +79,7 @@ function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
                     
                     console.log(data)
 
-                    setUserSignedIn(formInfo.username)     
+                    
                     setAccessToken(data.access)
                     console.log(data.access)
 
@@ -88,10 +92,11 @@ function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
                 }
             })
     }
-    
-    return (
+    console.log(formInfo)
+  return (
     <div>
         <h1>Welcome to Tournament Finder</h1>
+        <div>
       <h3>Login</h3>
         <form onSubmit={handleLogin}>
             <label>username:</label>
@@ -101,12 +106,16 @@ function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
             <input id="password" name="username" type="password" onChange={handleChange}/><br></br>
             <button type="submit">Login</button>
         </form>
-        <Link to="/signup/"> Sign Up | </Link>
-        <Link to="/landing_page/"> Guest</Link><br></br>
         <p>{networkErrMsg}</p>
         <p>{clientErrMsg}</p>
     </div>
-    );
+        <Link to="/signup/"> Sign Up | </Link>
+        <Link to="/landing_page/"> Guest</Link>
+
+    </div>
+
+   
+  )
 }
 
-export default Login;
+export default LoginPage
