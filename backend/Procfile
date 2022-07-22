@@ -1,1 +1,1 @@
-web: gunicorn tournament_django.wsgi
+web: gunicorn pool-tournament-finder.wsgi
