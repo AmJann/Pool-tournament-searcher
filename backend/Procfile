@@ -1,1 +1,1 @@
-web: gunicorn tournament-django.wsgi
+web: gunicorn tournament_django.wsgi
