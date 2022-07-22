@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import Map from "../components/Map";
 import Marker from "../components/Marker";
+import Navbar from "../components/Navbar";
 
 function ListingDetail(accessToken, center, zoom, position) {
   const [tournament, setTournament] = useState([]);
@@ -39,6 +40,7 @@ function ListingDetail(accessToken, center, zoom, position) {
 
   return (
     <div>
+      <Navbar />
       <h1>
         {tournament ? (
           <div className="listing-container">

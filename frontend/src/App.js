@@ -9,6 +9,7 @@ import CreateListing from './pages/CreateListing';
 import ListingDetail from './pages/ListingDetail';
 import EditListing from './pages/EditListing';
 import DeleteListing from './pages/DeleteListing';
+import News from './pages/News'
 
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(null)
@@ -45,6 +46,7 @@ function App() {
       <Route exact path="/listing_detail/:id" element={ <ListingDetail accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/listing_edit/:id" element={ <EditListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/listing_delete/:id" element={ <DeleteListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
+      <Route exact path="/news" element={ <News accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       
       
 </Routes>
@@ -52,12 +54,9 @@ function App() {
 
       {  userSignedIn ? (
         <div>
-        <nav>
+        <nav className='userSignedIn'>
           <span>signed in as: {userSignedIn}</span><br></br>
         </nav>
-        <footer>
-             <Link to="/landing_page/"> Home </Link>
-        </footer>
         </div>
         
 
@@ -65,11 +64,10 @@ function App() {
 
           
         ) :      
-        <div>
+        <div className='userSignedIn'>
 
         <span>invalid login</span>
         <footer>
-        <Link to="/landing_page/"> Home </Link>
         </footer>
         </div> 
       }

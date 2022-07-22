@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom'
+import Navbar from "../components/Navbar";
 import "../listings.css";
 
 function Listings_Protected() {
@@ -35,8 +36,9 @@ function Listings_Protected() {
 
   let tournamentListing = tournament.map((item, i) => {
     return (
+  
       <div className="listing-container">
-     <Link to={`/listing_detail/${item.uuid}`} key={i} className="link">  
+     <Link to={`/listing_detail/${item.uuid}`} key={i} className="listing">  
         <p>{item.title}</p>
         <p>{item.venue}</p>
         <p>{item.city}</p>
@@ -44,6 +46,7 @@ function Listings_Protected() {
         <p>{item.date}</p>
        </Link>
       </div>
+    
     );
   });
 
@@ -51,7 +54,7 @@ function Listings_Protected() {
 
   return (
     <div>
-      <h1>Tournaments</h1>
+      <Navbar />
       <h1>{tournament[0] ? tournamentListing : ""}</h1>
     </div>
   );

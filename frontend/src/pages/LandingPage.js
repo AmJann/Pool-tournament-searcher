@@ -1,8 +1,14 @@
 import React from "react";
-import { Route, Link, Routes } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import Listings_Protected from "./Listings_protected";
-import LoginPage from "./LoginPage";
+import Navbar from "../components/Navbar";
+import Aloysius_Yapp from "../images/Aloysius_Yapp.jpeg"
+import Kelly_Fisher from "../images/Kelly_Fisher.jpeg"
+import Fedor_Gorst from '../images/Fedor_Gorst.jpeg'
+import Joshua_Filler from '../images/Joshua_Filler.jpeg'
+
+
 
 function LandingPage({ accessToken, userSignedIn }) {
 
@@ -40,10 +46,31 @@ function LandingPage({ accessToken, userSignedIn }) {
 
   return  (
     <div>
-
-      <Link className ='link' to="/listings/">Tournaments</Link>
-      <Link className ='link' to="/listing_create/">Add Tournament</Link>     
+    <div className="navBarContainerLandingPage">
+      <Navbar />  
     </div>
+    <h2 className="featuredPlayersTitle">Featured Players</h2>
+    <div className="featuredPlayersContainer">
+    <div className="img-container horizontalImg">
+      <h3>Aloysius Yapp</h3>
+      <img src= {Aloysius_Yapp}/>
+    </div>
+    <div className="img-container">
+    <h3>Joshua Filler</h3>
+      <img src= {Joshua_Filler}/>
+    </div>
+    <div className="img-container horizontalImg">
+    <h3>Fedor Gorst</h3>
+      <img src= {Fedor_Gorst}/>
+    </div>
+    </div>
+    <h2>Featured Tournaments</h2>
+    <div className = 'featuredTournamentsContainer'>
+     <h1>Tournament</h1>
+
+    </div>
+    </div>
+
   );
 }
 

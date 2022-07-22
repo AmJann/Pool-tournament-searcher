@@ -33,8 +33,7 @@ function DeleteListing(accessToken) {
         <h1>Are you sure you want to <span id ='delete'>delete</span> this tournament listing?</h1>
         <form onSubmit={handleSubmit}>
     <div className="buttons">
-  
-        <input className="button delete" type="submit" value="Confirm" />
+        <input className="button delete" type="submit" value="Delete" />
         <Link to={`/listings/`} className="link">Cancel</Link>
     </div>
 </form>

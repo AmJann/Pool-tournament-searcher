@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom'
 
-function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
+function Login({setUserSignedIn, setAccessToken}) {
     
     const loginEndpoint = 'api/token/'
     //from backend
@@ -91,7 +91,10 @@ function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
     
     return (
     <div>
+        <div className='welcome'>
         <h1>Welcome to Tournament Finder</h1>
+        </div>
+      <div className='loginContainer'> 
       <h3>Login</h3>
         <form onSubmit={handleLogin}>
             <label>username:</label>
@@ -103,6 +106,7 @@ function Login({userSignedIn,setUserSignedIn, setAccessToken, accessToken}) {
         </form>
         <Link to="/signup/"> Sign Up | </Link>
         <Link to="/landing_page/"> Guest</Link><br></br>
+        </div> 
         <p>{networkErrMsg}</p>
         <p>{clientErrMsg}</p>
     </div>
