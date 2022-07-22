@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
-import Listings_Protected from "./Listings_protected";
 import Navbar from "../components/Navbar";
-import Aloysius_Yapp from "../images/Aloysius_Yapp.jpeg"
-import Kelly_Fisher from "../images/Kelly_Fisher.jpeg"
-import Fedor_Gorst from '../images/Fedor_Gorst.jpeg'
-import Joshua_Filler from '../images/Joshua_Filler.jpeg'
+
 
 
 
@@ -48,7 +43,7 @@ function LandingPage() {
   <div className="img-container">
     <Link to={`/player_detail/${item.uuid}`} key={i} className="player">  
       <h3>{item.name}</h3>
-      <img src= {item.image}/>
+      <img alt = 'player' src= {item.image}/>
     </Link>
   </div>
     

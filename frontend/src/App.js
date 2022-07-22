@@ -11,6 +11,7 @@ import EditListing from './pages/EditListing';
 import DeleteListing from './pages/DeleteListing';
 import News from './pages/News'
 import PlayerInfo from './pages/PlayerInfo';
+import NewsDetail from './pages/NewsDetail';
 
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(null)
@@ -32,6 +33,7 @@ function App() {
       <Route exact path="/listing_delete/:id" element={ <DeleteListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/news" element={ <News accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/player_detail/:id" element={ <PlayerInfo accessToken={accessToken} userSignedIn={userSignedIn} />}/>
+      <Route exact path="/news_detail/:id" element={ <NewsDetail accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       
       
 </Routes>

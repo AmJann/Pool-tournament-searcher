@@ -99,13 +99,7 @@ WSGI_APPLICATION = 'tournament_django.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tournament',
-        'USER': 'tournamentuser',
-        'PASSWORD': 'tournament',
-        'HOST': 'localhost'
-    }
+  'default': dj_database_url.config(conn_max_age=600)
 }
 
 DATABASE_URL='postgres://tournamentuser:tournament@localhost:5432/tournament'

@@ -37,7 +37,7 @@ function PlayerInfo(accessToken) {
     <Navbar />
       <div className="playerInfoImageContainer">
         <h1>{player.name}</h1>
-        <img src= {player.image}/>
+        <img alt = 'player'src= {player.image}/>
       </div>
       <div>
         <span>Birth Date:</span><h3>{player.birth_date}</h3>
