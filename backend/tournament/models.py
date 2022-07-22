@@ -35,4 +35,17 @@ class FeaturedPlayer(models.Model):
     def __str__(self):
         return self.name
 
+class News(models.Model):
+    uuid = models.UUIDField(primary_key=True,unique=True, auto_created=True, default=uuid.uuid4)
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=50)
+    image = models.CharField(max_length=200)
+    date = models.DateField()
+    article = models.CharField(max_length=2000)
+    description =models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
+
 

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Listing
 from .models import FeaturedPlayer
+from .models import News
 
 class ListingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -11,3 +12,8 @@ class FeaturedPlayerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = FeaturedPlayer
         fields = ('uuid', 'name','birth_date','country', 'fargo','image','current_year_earnings','description')
+
+class NewsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = News
+        fields = ('uuid','title','author', 'image','date','article','description')

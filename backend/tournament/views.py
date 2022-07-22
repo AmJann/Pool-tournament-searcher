@@ -2,12 +2,14 @@ from django.shortcuts import render
 
 from .models import Listing
 from .models import FeaturedPlayer
+from .models import News
 from django.http import JsonResponse
 
 
 from rest_framework import generics, permissions
 from .serializers import ListingSerializer
 from .serializers import FeaturedPlayerSerializer
+from .serializers import NewsSerializer
 from .models import Listing
 
 class Listings(generics.ListCreateAPIView):
@@ -42,7 +44,19 @@ class PlayerDetailProtected(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = FeaturedPlayerSerializer
     queryset = FeaturedPlayer.objects.all()
 
-    permission_classes = [permissions.AllowAny]    
+    permission_classes = [permissions.AllowAny] 
+
+class NewsProtected(generics.ListAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer    
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class NewsDetailProtected(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = NewsSerializer
+    queryset = News.objects.all()
+
+    permission_classes = [permissions.AllowAny]       
 
 
 def listings(request):
