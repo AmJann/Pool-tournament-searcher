@@ -8,6 +8,8 @@ urlpatterns = [
     path('listing_create/', views.ListingCreateProtected.as_view(), name='listing_create'),
     path('listing_detail/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_detail'),
     path('listing_edit/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_edit'),
-     path('listing_delete/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_delete')
+    path('listing_delete/<uuid:pk>/', views.ListingDetailProtected.as_view(), name='listing_delete'),
+    path('landing_page/', views.FeaturedPlayersProtected.as_view(), name ='featured_players'),
+    path('player_detail/<uuid:pk>/', views.PlayerDetailProtected.as_view(), name='player_detail'),
 ]
 

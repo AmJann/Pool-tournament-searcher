@@ -1,11 +1,13 @@
 from django.shortcuts import render
 
 from .models import Listing
+from .models import FeaturedPlayer
 from django.http import JsonResponse
 
 
 from rest_framework import generics, permissions
 from .serializers import ListingSerializer
+from .serializers import FeaturedPlayerSerializer
 from .models import Listing
 
 class Listings(generics.ListCreateAPIView):
@@ -29,6 +31,18 @@ class ListingDetailProtected(generics.RetrieveUpdateDestroyAPIView):
     queryset = Listing.objects.all()
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class FeaturedPlayersProtected(generics.ListAPIView):
+    queryset = FeaturedPlayer.objects.all()
+    serializer_class = FeaturedPlayerSerializer    
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class PlayerDetailProtected(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = FeaturedPlayerSerializer
+    queryset = FeaturedPlayer.objects.all()
+
+    permission_classes = [permissions.AllowAny]    
 
 
 def listings(request):

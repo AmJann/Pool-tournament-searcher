@@ -10,34 +10,18 @@ import ListingDetail from './pages/ListingDetail';
 import EditListing from './pages/EditListing';
 import DeleteListing from './pages/DeleteListing';
 import News from './pages/News'
+import PlayerInfo from './pages/PlayerInfo';
 
 function App() {
   const [userSignedIn, setUserSignedIn] = useState(null)
   const [accessToken, setAccessToken]= useState(null);
   const [redirected, setRedirected]= useState(null)
-//   useEffect(() => {
-    
-//     const url = process.env.REACT_APP_API_URL + 'listings_protected/';
-//     const opts = {
-//       method: 'GET',
-//       mode: 'no-cors',
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${accessToken}`,
-//         'Access-Control-Request-Headers': 'Content-Type, Authorization'
-//       }
-//     }
 
-//     fetch(url, opts)
-//     .then(res => res.json())
-//     .then(data => console.log(data))
-
-// });
   return (
 
     <div className="App">
     
-      <Routes>
+<Routes>
       <Route  exact path="/" element={<Login userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} setAccessToken={setAccessToken}/>}/>
       <Route  exact path="/signup" element={ <SignUpPage userSignedIn={userSignedIn} setUserSignedIn={setUserSignedIn} setAccessToken={setAccessToken}/>}/>
       <Route  exact path="/landing_page/"  element={<LandingPage accessToken={accessToken} userSignedIn={userSignedIn}/>}/>
@@ -47,6 +31,7 @@ function App() {
       <Route exact path="/listing_edit/:id" element={ <EditListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/listing_delete/:id" element={ <DeleteListing accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       <Route exact path="/news" element={ <News accessToken={accessToken} userSignedIn={userSignedIn} />}/>
+      <Route exact path="/player_detail/:id" element={ <PlayerInfo accessToken={accessToken} userSignedIn={userSignedIn} />}/>
       
       
 </Routes>

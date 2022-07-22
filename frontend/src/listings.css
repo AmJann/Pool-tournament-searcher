@@ -175,3 +175,12 @@ img{
     padding-top:0;
     background-color: rgb(203, 199, 199);
 }
+.player{
+    text-decoration: none;
+    color:black;
+}
+
+.listing{
+    text-decoration: none;
+    color:black;
+}

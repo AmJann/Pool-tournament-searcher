@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import Listings_Protected from "./Listings_protected";
@@ -10,39 +11,49 @@ import Joshua_Filler from '../images/Joshua_Filler.jpeg'
 
 
 
-function LandingPage({ accessToken, userSignedIn }) {
+function LandingPage() {
 
-// const [tournament,setTournament] = useState([])
+  const [player, setPlayer] = useState([]);
 
-//   useEffect(() => {
-//     const url = process.env.REACT_APP_API_URL + "listings_protected/";
-//     const opts = {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${accessToken}`,
-//         "Access-Control-Request-Headers": "Content-Type, Authorization",
-//       },
-//     };
+  function getData(accessToken) {
+    const url = process.env.REACT_APP_API_URL + "landing_page/";
+    const opts = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `jwt ${accessToken}`,
+        "Access-Control-Request-Headers": "Content-Type, Authorization",
+      },
+    };
 
-//     fetch(url, opts)
-//       .then((res) => res.json())
-//       .then((data)=>setTournament(data))
-//       .then((data)=>console.log(data))
+    fetch(url, opts)
+      .then((res) => res.json())
+      .then((data) => {
+          console.log(data)
+          return data
+        })
+      .then((data) => setPlayer(data))
+      
+     console.log(player)
+  }
+
+  useEffect(() => {
+    getData();
     
-
-
-     
-//   },[]);
-  
-//   useEffect(() => {
-//     let data =(data)=>{
-//         setTournament(data)
-//     };
-//     data = data
-//   }, []);
+  }, []);
        
-
+  let featuredPlayers = player.map((item, i) => {
+    return (
+  
+  <div className="img-container">
+    <Link to={`/player_detail/${item.uuid}`} key={i} className="player">  
+      <h3>{item.name}</h3>
+      <img src= {item.image}/>
+    </Link>
+  </div>
+    
+    );
+  });
 
   return  (
     <div>
@@ -51,18 +62,7 @@ function LandingPage({ accessToken, userSignedIn }) {
     </div>
     <h2 className="featuredPlayersTitle">Featured Players</h2>
     <div className="featuredPlayersContainer">
-    <div className="img-container horizontalImg">
-      <h3>Aloysius Yapp</h3>
-      <img src= {Aloysius_Yapp}/>
-    </div>
-    <div className="img-container">
-    <h3>Joshua Filler</h3>
-      <img src= {Joshua_Filler}/>
-    </div>
-    <div className="img-container horizontalImg">
-    <h3>Fedor Gorst</h3>
-      <img src= {Fedor_Gorst}/>
-    </div>
+    {player[0] ? featuredPlayers : ""}
     </div>
     <h2>Featured Tournaments</h2>
     <div className = 'featuredTournamentsContainer'>

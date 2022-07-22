@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 
 
@@ -23,19 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mb#^xl14ef_#gsolkloo+uvmq$a4()2um@@8qn=x75@30p2@=*'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS = ['*']
 
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000" 
 ]
-
-
-# CORS_ALLOWED_ORIGINS = [
-#     "http://127.0.0.1", 
-# ]
 # CORS_ORIGIN_WHITELIST = (
 #   'http://localhost:8000',
 # )
@@ -58,17 +59,18 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'tournament_django.urls'
 
@@ -105,6 +107,8 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
+
+DATABASE_URL='postgres://tournamentuser:tournament@localhost:5432/tournament'
 
 
 # Password validation
