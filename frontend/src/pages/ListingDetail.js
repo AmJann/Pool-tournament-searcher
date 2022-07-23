@@ -95,7 +95,7 @@ function ListingDetail(accessToken, center, zoom, position) {
         )}
       </h1>
 
-      {/* <Wrapper apiKey={"AIzaSyDxDTiSWxZsKIe7tjVtHEv7kSl_OorxI-E"}>
+      {/* <Wrapper apiKey={}>
         <Map center={center} zoom={zoom}>
           <Marker position={position} />
         </Map>
