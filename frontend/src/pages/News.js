@@ -32,9 +32,26 @@ function News() {
       getData();
       
     }, []);
+
+    let featuredNews = news.map((item, i) => {
+        return (
+      
+      <div className="img-container">
+        <Link to={`/news_detail/${item.uuid}`} key={i} className="news">  
+          <h3>{item.title}</h3>
+          <img alt = 'player' src= {item.image}/>
+          <p>{item.description}</p>
+        </Link>
+      </div>
+        
+        );
+      });
   return (
     <div>
         <Navbar />
+            <div>
+                {featuredNews}
+            </div>
       
     </div>
   )
