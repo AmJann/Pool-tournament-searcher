@@ -35,7 +35,7 @@ function News() {
   return (
     <div>
         <Navbar />
-        News
+      
     </div>
   )
 }
