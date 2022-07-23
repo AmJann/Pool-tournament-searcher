@@ -50,7 +50,7 @@ class NewsProtected(generics.ListAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer    
 
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 class NewsDetailProtected(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = NewsSerializer

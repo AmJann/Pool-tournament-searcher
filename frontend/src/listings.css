@@ -1,4 +1,6 @@
 .listing-container{
+    display:flex;
+    flex-direction: column;
     border:2px solid grey;
     border-radius: 5px;
     font-size: 12px;
@@ -6,6 +8,8 @@
     margin: 2% 5% 2% 5%;
     background-color: rgb(248, 248, 8);
     box-shadow: 30px rgb(141, 22, 22);
+    width:30%;
+    
     
  
 }
@@ -54,10 +58,12 @@ body{
 }
 
 .formContainer{
-    display:flex;
-    justify-content: center;
+    display:inline-flex;
+    flex-direction: row;
+    justify-content:center;
     text-align: left;
 }
+
 #map{
     height:400px;
     width:100%;
@@ -84,7 +90,7 @@ body{
 
 .phone, .email{
 display:flex;
-padding:12%;
+padding:5%;
 }
 
 .value{
@@ -92,10 +98,13 @@ padding:12%;
 }
 div > input{
     display:flex;
+    flex-direction: row;
     border-radius: 3px;
     flex-direction: row;
     margin-top:1.5%;
+   
 }
+
 
 .img-container{
     height:20%;
@@ -103,15 +112,23 @@ div > input{
     align-items: center;
     border-bottom: 1px solid grey;
     padding-bottom: 20px;
-    box-shadow: 5px;
+    
     
     
 }
 
 img{
     width:100%;
-    border-radius: 7px;
-    
+    height:100%;
+    border-radius: 9px;
+}
+
+img:hover{
+    transform:scale(1.2)
+}
+
+.imgNews:hover{
+    transform: scale(1);
 }
 .featuredPlayersContainer{
     display: flex;
@@ -159,12 +176,19 @@ img{
     background-color:orangered;
 }
 
-.featuredTournamentsContainer{
+.featuredTournamentContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: rgb(248, 248, 8);
+    border-left: 3px solid rgb(9, 65, 10);
+    border-bottom:3px solid rgb(9, 65, 10);
+    margin-left: 3%;
+    padding-left: 0;
 }
 
 .welcome{
-    background-color: green;
+    background-color: rgb(52, 124, 52);
 }
 .loginContainer{
     display:inline-flex;
@@ -184,3 +208,131 @@ img{
     text-decoration: none;
     color:black;
 }
+
+.news{
+    text-decoration: none;
+    color:black;
+
+}
+.newsImg{
+    display:inline-flex;
+    border: 1px solid gray;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    margin:5%;
+    width:30%;
+    height:5%;
+    padding:2%;
+    flex-wrap: wrap-reverse;
+    background-color:rgb(251, 251, 126);
+    border-radius: 15px;
+   
+}
+
+.newsImg:last-of-type{
+    width:50%;
+   
+}
+
+
+.signUpGuest{
+    color:black;
+    text-decoration: none;
+    display:inline-flex;
+    flex-direction: row;
+    padding: 5px;
+   
+
+}
+
+
+.signUpGuest:hover{
+  transform:scale(1.2);
+  
+    
+}
+
+.signUpContainer{
+    margin-top: 5px;
+}
+
+@keyframes move{
+    0% {
+        transform: translateX(-400px)
+    }
+    100% {
+        transform:translateX(0px)
+    }
+}
+
+.navBarContainerLandingPage{
+
+    background-color: darkcyan;
+    /* animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate; */
+    animation: move 2s  ease ;
+}
+
+.navBarContainerLandingPage {transition-timing-function: ease-in;}
+
+.playerImg:hover{
+    transform: none;
+}
+
+.articleImgContainer{
+    width:50%;
+    margin-left: 5%;
+    border-radius: 15px;
+    box-shadow:10px;
+}
+.playerInfo{
+    display:flex;
+    flex-direction: row;
+    background-position-y: top;
+    margin-bottom: 5%;
+}
+.playerStats{
+    margin-top: 10%;
+    margin-left: 2%;
+    border-left: 1px solid black;
+    padding:2%;
+    padding-left:1%;
+    text-align: left;
+    background-color: rgb(218, 225, 218);
+}
+
+.article{
+    display:flex;
+    margin-top: 7%;
+    margin-left:2%;
+    border:1px solid  gray;
+    font-weight: 200;
+    padding:2%;
+    background-color: rgb(251, 251, 126);
+}
+.font{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.dateAuthor{
+   display: inline-flex;
+   justify-content: space-around;
+   margin-top:2%;
+   margin-bottom: 2%;
+   
+  
+}
+
+.newsArticle{
+    margin-top: 1%;
+}
+
+.login{
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgb(251, 251, 126);
+    padding:1%;
+}
+
+
+

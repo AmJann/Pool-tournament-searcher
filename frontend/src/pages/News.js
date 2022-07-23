@@ -36,10 +36,10 @@ function News() {
     let featuredNews = news.map((item, i) => {
         return (
       
-      <div className="img-container">
+      <div className="img-container newsImg">
         <Link to={`/news_detail/${item.uuid}`} key={i} className="news">  
-          <h3>{item.title}</h3>
-          <img alt = 'player' src= {item.image}/>
+          <h3 className='font'>{item.title}</h3>
+          <img className='imgNews' alt = 'player' src= {item.image}/>
           <p>{item.description}</p>
         </Link>
       </div>
@@ -49,6 +49,7 @@ function News() {
   return (
     <div>
         <Navbar />
+        <h1 className='font'>Billiards News Today</h1>
             <div>
                 {featuredNews}
             </div>

@@ -35,18 +35,20 @@ function PlayerInfo(accessToken) {
   return (
     <>
     <Navbar />
-      <div className="playerInfoImageContainer">
-        <h1>{player.name}</h1>
-        <img alt = 'player'src= {player.image}/>
+    <div className="playerInfo">
+      <div className='articleImgContainer'>
+        <h1 className="font">{player.name}</h1>
+        <img className="playerImg" alt = 'player'src= {player.image}/>
       </div>
-      <div>
+      <div className="playerStats">
         <span>Birth Date:</span><h3>{player.birth_date}</h3>
         <span>Country:</span><h3>{player.country}</h3>
         <span>Fargo Rating:</span><h3>{player.fargo}</h3>
         <span>Current Year Earnings</span><h3>{player.current_year_earnings}</h3>
+      </div>  
       </div>
-      <div>
-        <h2>{player.description}</h2>
+      <div className="article">
+        <h3>{player.description}</h3>
       </div>
     </>
   )

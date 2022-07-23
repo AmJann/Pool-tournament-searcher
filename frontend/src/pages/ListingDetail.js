@@ -43,7 +43,7 @@ function ListingDetail(accessToken, center, zoom, position) {
       <Navbar />
       <h1>
         {tournament ? (
-          <div className="listing-container">
+          <div className="listing-container font">
             <h1>{tournament.venue}</h1>
             <h2>{tournament.title}</h2>
             <div className="tournamentInfo">
@@ -84,6 +84,9 @@ function ListingDetail(accessToken, center, zoom, position) {
             </Link>
             <Link to={`/listing_delete/${tournament.uuid}`} className="link">
               Delete
+            </Link>
+            <Link to={`/listings/`} className="link">
+              Back
             </Link>
             </div>
           </div>

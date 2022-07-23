@@ -12,6 +12,6 @@ urlpatterns = [
     path('landing_page/', views.FeaturedPlayersProtected.as_view(), name ='featured_players'),
     path('player_detail/<uuid:pk>/', views.PlayerDetailProtected.as_view(), name='player_detail'),
     path('news/', views.NewsProtected.as_view(), name ='news'),
-    path('news_detail/<uuid:pk>/', views.NewsProtected.as_view(), name='news_detail'),
+    path('news_detail/<uuid:pk>/', views.NewsDetailProtected.as_view(), name='news_detail'),
 ]
 

@@ -56,13 +56,16 @@ function EditListing(accessToken) {
      <Navbar />
      <h1>Edit {formData.title} Tournament</h1>
       <div className="formContainer">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>    
+        <div className='formDivider'>  
           <div className='Edit'><span className='editKey'>Director:</span><input id="director" type="text" placeholder="director" value={formData.director} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Title:</span><input id="title" type="text" placeholder="tournament name" value={formData.title} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Phone:</span><input id="phone_number" type="text" placeholder="phone number" value={formData.phone_number} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>E-mail:</span><input id="email" type="email" placeholder="email" value={formData.email} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Venue:</span><input id="venue" type="text" placeholder="venue" value={formData.venue} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Address:</span><input id="address" type="text" placeholder="address" value={formData.address} onChange={handleChange} /></div>
+        </div>  
+        <div className='formDivider'>
           <div className='Edit'><span className='editKey'>City:</span><input id="city" type="text" placeholder="city" value={formData.city} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>State:</span><input id="state" type="text" placeholder="state" value={formData.state} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Zipcode:</span><input id="zipcode" type="text" placeholder="zipcode" value={formData.zipcode} onChange={handleChange} /></div>
@@ -70,6 +73,7 @@ function EditListing(accessToken) {
           <div className='Edit'><span className='editKey'>Sign up time:</span><input id="sign_up_time" type="text" placeholder="sign up time" value={formData.sign_up_time} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Start time:</span><input id="start_time" type="text" placeholder="start time" value={formData.start_time} onChange={handleChange} /></div>
           <div className='Edit'><span className='editKey'>Description:</span><input id="description" type="text" placeholder="description" value={formData.description} onChange={handleChange} /></div>
+        </div>  
           <button className ="submit button" type="submit" value="Submit">Submit</button>
         </form>
       </div>

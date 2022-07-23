@@ -92,20 +92,22 @@ function Login({setUserSignedIn, setAccessToken}) {
     return (
     <div>
         <div className='welcome'>
-        <h1>Welcome to Tournament Finder</h1>
+        <h1 className='font'>Welcome to Tournament Finder</h1>
         </div>
       <div className='loginContainer'> 
       <h3>Login</h3>
         <form onSubmit={handleLogin}>
-            <label>username:</label>
+            <label className='font'>username:</label>
             <input id="username" name="username" type="text" onChange={handleChange}/><br></br>
             {/* onChange changes the state as you type (see handleChange) */}
-            <label>password:</label>
+            <label className='font'>password:</label>
             <input id="password" name="username" type="password" onChange={handleChange}/><br></br>
-            <button type="submit">Login</button>
+            <button classname="login font" type="submit">Login</button>
         </form>
-        <Link to="/signup/"> Sign Up | </Link>
-        <Link to="/landing_page/"> Guest</Link><br></br>
+        <div className='signUpContainer'>
+        <Link className='signUpGuest' to="/signup/"> Sign Up </Link>
+        <Link className='signUpGuest' to="/landing_page/"> Guest</Link>
+        </div>
         </div> 
         <p>{networkErrMsg}</p>
         <p>{clientErrMsg}</p>
