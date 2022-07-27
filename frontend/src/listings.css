@@ -51,6 +51,8 @@ body{
 
 .link:hover{
     transform: scale(1.1);
+    background-color: rgb(216, 210, 210);
+    color:rgb(35, 34, 34)
 }
 .listing:hover{
     transform: scale(1.1);
