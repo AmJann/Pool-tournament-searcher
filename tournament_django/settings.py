@@ -13,11 +13,17 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import environ
 
-
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+    )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,11 +38,6 @@ DEBUG = True if os.environ['MODE'] == 'dev' else False
 ALLOWED_HOSTS = ['*']
 
 
-CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000" 
-]
 # CORS_ORIGIN_WHITELIST = (
 #   'http://localhost:8000',
 # )
@@ -99,13 +100,7 @@ WSGI_APPLICATION = 'tournament_django.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tournament',
-        'USER': 'tournamentuser',
-        'PASSWORD': 'tournament',
-        'HOST': 'localhost'
-    }
+  'default': dj_database_url.config(conn_max_age=600)
 }
 
 DATABASE_URL='postgres://tournamentuser:tournament@localhost:5432/tournament'
@@ -147,13 +142,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR,'../frontend/build/static'),
+STATICFILES_DIRS = os.path.join(BASE_DIR,'../build/static'),
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,

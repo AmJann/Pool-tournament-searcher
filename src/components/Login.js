@@ -51,6 +51,7 @@ function Login({setUserSignedIn, setAccessToken}) {
         fetch( apiUrl + loginEndpoint, 
                 {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type':'application/json',
                     },
@@ -102,7 +103,7 @@ function Login({setUserSignedIn, setAccessToken}) {
             {/* onChange changes the state as you type (see handleChange) */}
             <label className='font'>password:</label>
             <input id="password" name="username" type="password" onChange={handleChange}/><br></br>
-            <button classname="login font" type="submit">Login</button>
+            <button className="login font" type="submit">Login</button>
         </form>
         <div className='signUpContainer'>
         <Link className='signUpGuest' to="/signup/"> Sign Up </Link>

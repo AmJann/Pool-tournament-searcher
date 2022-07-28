@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+
 import Map from "../components/Map";
 import Marker from "../components/Marker";
 import Navbar from "../components/Navbar";
