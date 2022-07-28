@@ -79,7 +79,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR,'../frontend/build'),
+            os.path.join(BASE_DIR,'../build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -144,7 +144,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT=os.path.join(BASE_DIR, "static/")
 
-STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage'
+# STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
