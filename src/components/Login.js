@@ -51,7 +51,6 @@ function Login({setUserSignedIn, setAccessToken}) {
         fetch( apiUrl + loginEndpoint, 
                 {
                     method: 'POST',
-                    mode: 'no-cors',
                     headers: {
                         'Content-Type':'application/json',
                     },

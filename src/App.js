@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import './App.css'
 import Login from './components/Login';
 import SignUpPage from './pages/SignUpPage';
-import {Route, Link, Routes, Navigate} from 'react-router-dom'
+import {Route,Routes} from 'react-router-dom'
 import LandingPage from './pages/LandingPage';
 import Listings_protected from './pages/Listings_protected';
 import CreateListing from './pages/CreateListing';
