@@ -44,20 +44,17 @@ class PlayerDetailProtected(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = FeaturedPlayerSerializer
     queryset = FeaturedPlayer.objects.all()
 
-    permission_classes = [permissions.AllowAny] 
 
 class NewsProtected(generics.ListAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer    
 
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class NewsDetailProtected(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = NewsSerializer
     queryset = News.objects.all()
-
-    permission_classes = [permissions.AllowAny]       
-
+     
 
 def listings(request):
     listings = Listing.objects.all()

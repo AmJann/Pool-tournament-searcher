@@ -14,8 +14,6 @@ function PlayerInfo(accessToken) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken.accessToken}`,
-        "Access-Control-Request-Headers": "Content-Type, Authorization",
       },
     };
 
