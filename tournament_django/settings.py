@@ -103,7 +103,7 @@ DATABASES = {
   'default': dj_database_url.config(conn_max_age=600)
 }
 
-DATABASE_URL='postgres://tournamentuser:tournament@localhost:5432/tournament'
+DATABASE_URL='postgres://tournamentuser:tournament@localhost:8000/tournament'
 
 
 
