@@ -77,7 +77,7 @@ function Signup({setUserSignedIn}) {
                     console.log(data)
                     
                     // setUserSignedIn(data.username)
-
+                    
                     // add call to login
                     // redirect here
 
