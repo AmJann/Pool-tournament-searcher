@@ -32,7 +32,7 @@ function Login({setUserSignedIn, setAccessToken}) {
     const handleChange = (e) => {
         setFromInfo({...formInfo, [e.target.id]: e.target.value})
     }
-    //while typing in input it up dates target input by id and
+    //while typing in input it updates target input by id and
     // changes value does not go to database until you hit submit
     const handleLogin = (e) => {
         
